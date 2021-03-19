@@ -25,8 +25,8 @@ public class MapTask extends AbstractTask {
   final private CyApplicationManager applicationManager;
   final private CyNetwork currentNetwork;
   final private EquationCompiler compiler;
-  final static String TARGET_EQ = "=%sTABLECELL(TARGETID($SUID), \"%s\")";
-  final static String SOURCE_EQ = "=%sTABLECELL(SOURCEID($SUID), \"%s\")";
+  final public static String TARGET_EQ = "=%sTABLECELL(TARGETID($SUID), \"%s\")";
+  final public static String SOURCE_EQ = "=%sTABLECELL(SOURCEID($SUID), \"%s\")";
 
   @Tunable(description="Node columns to map")
   public ListMultipleSelection<String> nodeColumns;

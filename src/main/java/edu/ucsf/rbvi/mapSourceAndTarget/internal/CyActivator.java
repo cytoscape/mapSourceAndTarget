@@ -18,6 +18,7 @@ import static org.cytoscape.work.ServiceProperties.TOOL_BAR_GRAVITY;
 import static org.cytoscape.work.ServiceProperties.TOOLTIP;
 
 import org.cytoscape.application.CyApplicationManager;
+import org.cytoscape.model.events.NetworkAddedListener;
 import org.cytoscape.service.util.AbstractCyActivator;
 import org.cytoscape.service.util.CyServiceRegistrar;
 import org.cytoscape.work.TaskFactory;
@@ -29,6 +30,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
+import edu.ucsf.rbvi.mapSourceAndTarget.internal.model.MapSandTManager;
 import edu.ucsf.rbvi.mapSourceAndTarget.internal.tasks.MapTaskFactory;
 
 
@@ -40,6 +42,8 @@ public class CyActivator extends AbstractCyActivator {
 
 	public void start(BundleContext bc) {
 		final CyServiceRegistrar serviceRegistrar = getService(bc, CyServiceRegistrar.class);
+    MapSandTManager manager = new MapSandTManager(serviceRegistrar);
+    registerService(bc, manager, NetworkAddedListener.class, new Properties());
 
 		{
 			MapTaskFactory expExp = new MapTaskFactory(serviceRegistrar);
