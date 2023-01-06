@@ -3,6 +3,7 @@ package edu.ucsf.rbvi.mapSourceAndTarget.internal.tasks;
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.equations.Equation;
 import org.cytoscape.equations.EquationCompiler;
+import org.cytoscape.model.CyColumn;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyRow;
 import org.cytoscape.model.CyTable;
@@ -39,7 +40,8 @@ public class MapTask extends AbstractTask {
     this.currentNetwork = applicationManager.getCurrentNetwork();
     if (currentNetwork == null) return;
 
-    List<String> names = new ArrayList<>(CyTableUtil.getColumnNames(currentNetwork.getDefaultNodeTable()));
+    List<String> names = new ArrayList<>(getNonListColumnNames(currentNetwork.getDefaultNodeTable()));
+    //List<String> names = new ArrayList<>(CyTableUtil.getColumnNames(currentNetwork.getDefaultNodeTable()));
     Collections.sort(names);
     nodeColumns = new ListMultipleSelection<>(names);
   }
@@ -63,6 +65,18 @@ public class MapTask extends AbstractTask {
       createColumn(edgeTable, nodeTable.getColumn(column).getType(), "node::Source_", column, SOURCE_EQ);
       createColumn(edgeTable, nodeTable.getColumn(column).getType(), "node::Target_", column, TARGET_EQ);
     }
+  }
+
+  public List<String> getNonListColumnNames(CyTable nodeTable) {
+    List<String> names = new ArrayList<>();
+    for (CyColumn column: nodeTable.getColumns()) {
+      // System.out.println("column = "+column.getName()+" type = "+column.getType());
+      if (List.class.isAssignableFrom(column.getType())) {
+        continue;
+      }
+      names.add(column.getName());
+    }
+    return names;
   }
 
   public void createColumn(CyTable targetTable, Class<?> clazz, String prefix, String column, String equationPattern) {
