@@ -1,4 +1,4 @@
-package edu.ucsf.rbvi.mapSourceAndTarget.internal.tasks;
+package org.cytoscape.mapSourceAndTarget.internal.tasks;
 
 import org.cytoscape.application.CyApplicationManager;
 import org.cytoscape.equations.Equation;

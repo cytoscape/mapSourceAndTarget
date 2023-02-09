@@ -1,4 +1,4 @@
-package edu.ucsf.rbvi.mapSourceAndTarget.internal;
+package org.cytoscape.mapSourceAndTarget.internal;
 
 import static org.cytoscape.work.ServiceProperties.COMMAND;
 import static org.cytoscape.work.ServiceProperties.COMMAND_DESCRIPTION;
@@ -30,8 +30,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-import edu.ucsf.rbvi.mapSourceAndTarget.internal.model.MapSandTManager;
-import edu.ucsf.rbvi.mapSourceAndTarget.internal.tasks.MapTaskFactory;
+import org.cytoscape.mapSourceAndTarget.internal.model.MapSandTManager;
+import org.cytoscape.mapSourceAndTarget.internal.tasks.MapTaskFactory;
 
 
 public class CyActivator extends AbstractCyActivator {

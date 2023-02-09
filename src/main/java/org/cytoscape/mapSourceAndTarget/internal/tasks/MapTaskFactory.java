@@ -1,4 +1,4 @@
-package edu.ucsf.rbvi.mapSourceAndTarget.internal.tasks;
+package org.cytoscape.mapSourceAndTarget.internal.tasks;
 
 import org.cytoscape.service.util.CyServiceRegistrar;
 import org.cytoscape.work.AbstractTaskFactory;

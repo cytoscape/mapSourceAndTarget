@@ -1,4 +1,4 @@
-package edu.ucsf.rbvi.mapSourceAndTarget.internal.model;
+package org.cytoscape.mapSourceAndTarget.internal.model;
 
 import java.util.Collection;
 import java.util.Properties;
@@ -13,7 +13,7 @@ import org.cytoscape.property.CyProperty;
 import org.cytoscape.property.CyProperty.SavePolicy;
 import org.cytoscape.service.util.CyServiceRegistrar;
 
-import edu.ucsf.rbvi.mapSourceAndTarget.internal.tasks.MapTask;
+import org.cytoscape.mapSourceAndTarget.internal.tasks.MapTask;
 
 /**
  * This class manages the automatic mapping of source and target node
